@@ -21,7 +21,7 @@
     <a class="logo">Click N' Shop Market </a>
 
     <nav class="navbar">
-        <a href="index.php">Home</a>
+        <a href="home">Home</a>
         <a href="#about">About</a>
         <a href="#products">Products</a>
         <a href="#review">Review</a>
@@ -31,7 +31,7 @@
     <div class="icons">
         <a href="#" class="fas fa-bars"></a>
         <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fas fa-user"></a>
+        <a href="{{ route('login') }}" class="fas fa-user"></a>
 
     </div>
 </header>

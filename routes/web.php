@@ -117,6 +117,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/login', function () {
 	return view('session/landing_page');
+})->name('landing');
+
+Route::get('/login-page', function () {
+	return view('session/login-session');
 })->name('login');
 
 
