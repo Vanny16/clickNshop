@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function main(){
 
         $total_products_count = Products::count();
-        $total_users_count = Users::count();
+        $total_users_count = User::count();
 
 
    return view('dashboard')->with([
