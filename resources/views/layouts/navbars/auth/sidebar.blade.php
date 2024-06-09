@@ -55,7 +55,7 @@
                     </g>
                 </svg>
             </div>
-            <span class="nav-link-text ms-1">Manage Products</span>
+            <span class="nav-link-text ms-1">Products</span>
         </a>
       </li>
 
