@@ -9,7 +9,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">Student Documents</h5>
+                            <h5 class="mb-0">Manage Products</h5>
                         </div>
                     </div>
                     @if(session('success'))
@@ -31,27 +31,27 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        ID
+                                        Product ID
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Student ID
+                                        Product Name
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Last Name
+                                        Price
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        First Name
+                                        Stock
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Middle Name
+                                        Category
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Action
+                                        Discount
                                     </th>
                                 </tr>
                             </thead>
@@ -59,20 +59,22 @@
                                 @foreach ($studentDocuments as $studentDocuments)
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->id }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->product_id }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->student_id }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->product_name }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->last_name }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->price }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->first_name }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->stock }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->middle_name }}
-                                        </p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->category }}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->discount }}</p>
                                     </td>
                                     <td style="text-align:center">
                                         <a class="btn btn-primary btn-sm view-btn text-white" data-toggle="modal"

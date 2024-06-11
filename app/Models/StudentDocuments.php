@@ -7,17 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentDocuments extends Model
 {
-    protected $table = 'student_documents';
+    protected $table = 'products';
 
     protected $fillable = [
-        'student_id',
-        'last_name',
-        'first_name',
-        'middle_name',
-        'birth_certificate',
-        'form_137',
-        'transcript_generation',
-        'good_moral',
+        'product_id',
+        'product_name',
+        'price',
+        'stock',
+        'category',
+        'discount',
     ];
 
     public function enrolled()
