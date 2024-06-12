@@ -93,8 +93,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('user-management', [InfoUserController::class, 'user_management'])->name('user-management');
 	Route::get('/student_documents', [StudentDocumentsController::class, 'student_documents'])->name('student_documents');
-	Route::put('/update_student_documents/{id}', [StudentDocumentsController::class, 'updateStudentDocuments'])
-		->name('update_student_documents');
+	// Route::put('/update_student_documents/{id}', [StudentDocumentsController::class, 'updateStudentDocuments'])
+	// 	->name('update_student_documents');
 	Route::get('/download_student_document/{id}/{type}', [StudentDocumentsController::class, 'downloadStudentDocument'])
 		->name('download_student_document');
 

@@ -26,12 +26,12 @@ class InfoUserController extends Controller
     public function delete_enrollee($id)
     {
         // Find the enrollee by ID
-        $enrollee = StudentEnrolled::find($id);
+        $enrollee = Product::find($id);
 
         // Check if the enrollee exists
         if ($enrollee) {
             // Find and delete the corresponding record in StudentDocuments table
-            $studentDocuments = StudentDocuments::where('student_id', $enrollee->student_id)->first();
+            $studentDocuments = StudentDocuments::where('product_id', $enrollee->student_id)->first();
             if ($studentDocuments) {
                 $studentDocuments->delete();
             }
@@ -40,10 +40,10 @@ class InfoUserController extends Controller
             $enrollee->delete();
 
             // Redirect back with a success message
-            return redirect('/enrolled_students')->with('success', 'Student deleted successfully!');
+            return redirect()->back()->with('success', 'Student deleted successfully!');
         } else {
             // Redirect back with an error message
-            return redirect('/enrolled_students')->with('error', 'Student not found!');
+            return redirect()->back()->with('error', 'Student not found!');
         }
     }
 

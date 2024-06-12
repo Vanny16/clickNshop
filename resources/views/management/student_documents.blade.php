@@ -86,7 +86,7 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <form id="delete-form-{{ $studentDocuments->id }}"
-                                            action="{{ route('delete_enrollee', $studentDocuments->id) }}" method="POST"
+                                            action="{{ route('delete_enrollee', $studentDocuments->product_id) }}" method="POST"
                                             style="display: none;">
                                             @csrf
                                             @method('DELETE')
@@ -184,7 +184,7 @@
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <form
-                                                action="{{ route('update_student_documents', $studentDocuments->id) }}"
+                                                action=""
                                                 method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
