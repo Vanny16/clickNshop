@@ -11,6 +11,8 @@
                         <div>
                             <h5 class="mb-0">Manage Products</h5>
                         </div>
+                        <a href="/add_products" class="btn bg-gradient-success btn-sm mb-0" type="button">+&nbsp;
+                            Add Products</a>
                     </div>
                     @if(session('success'))
                     <!-- Success message display -->
@@ -53,6 +55,10 @@
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Discount
                                     </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +74,7 @@
                                         <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->price }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->stock }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->quantitystock }}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->category }}</p>
@@ -76,6 +82,7 @@
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{ $studentDocuments->discount }}</p>
                                     </td>
+                                    
                                     <td style="text-align:center">
                                         <a class="btn btn-primary btn-sm view-btn text-white" data-toggle="modal"
                                             data-target="#viewStudentModal{{ $studentDocuments->id }}">
@@ -99,34 +106,43 @@
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="viewStudentModalLabel">Student Information
+                                                <h5 class="modal-title" id="viewStudentModalLabel">Product Information
                                                 </h5>
                                                 <button type="button" class="btn-close" data-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body" id="modal-body-content">
-                                                <div class="row mb-2">
+                                                <!-- <div class="row mb-2">
                                                     <div class="col-6">
                                                         <strong>Student ID:</strong>
                                                         <span>{{ $studentDocuments->student_id }}</span>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="row mb-2">
                                                     <div class="col-4">
-                                                        <strong>Last Name:</strong>
-                                                        <span>{{ $studentDocuments->last_name }}</span>
+                                                        <strong>Product Name:</strong>
+                                                        <span>{{ $studentDocuments->product_name }}</span>
                                                     </div>
                                                     <div class="col-4">
-                                                        <strong>First Name:</strong>
-                                                        <span>{{ $studentDocuments->first_name }}</span>
+                                                        <strong>Price:</strong>
+                                                        <span>{{ $studentDocuments->price }}</span>
                                                     </div>
                                                     <div class="col-4">
-                                                        <strong>Middle Name:</strong>
-                                                        <span>{{ $studentDocuments->middle_name }}</span>
+                                                        <strong>Stock Quantity:</strong>
+                                                        <span>{{ $studentDocuments->quantitystock }}</span>
                                                     </div>
+                                                    <div class="col-4">
+                                                        <strong>Category:</strong>
+                                                        <span>{{ $studentDocuments->category }}</span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <strong>Discount:</strong>
+                                                        <span>{{ $studentDocuments->discount }}</span>
+                                                    </div>
+                                                    
                                                 </div>
                                                 <!-- File Attachment Section -->
-                                                <div class="row mb-2">
+                                                <!-- <div class="row mb-2">
                                                     <div class="col-12">
                                                         <strong>Birth Certificate:</strong>
                                                         @if($studentDocuments->birth_certificate)
@@ -169,7 +185,7 @@
                                                         Not Submitted
                                                         @endif
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

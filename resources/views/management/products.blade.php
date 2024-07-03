@@ -13,8 +13,6 @@
                         <div>
                             <h5 class="mb-0">Products</h5>
                         </div>
-                        <a href="/add_products" class="btn bg-gradient-success btn-sm mb-0" type="button">+&nbsp;
-                            Add Products</a>
                     </div>
                     @if(session('success'))
                     <div class="m-3 alert alert-success alert-dismissible fade show" id="alert-success" role="alert">

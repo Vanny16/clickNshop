@@ -13,7 +13,7 @@ class StudentDocuments extends Model
         'product_id',
         'product_name',
         'price',
-        'stock',
+        'quantitystock',
         'category',
         'discount',
     ];
