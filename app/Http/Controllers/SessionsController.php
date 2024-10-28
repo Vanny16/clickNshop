@@ -12,36 +12,28 @@ use Illuminate\Support\Facades\ThrottleAttemptsException;
 class SessionsController extends Controller
 {
     public function create()
-    {
-        return view('session.login-session');
-    }
+{
+    return view('session.login-session');
+}
 
-    public function store()
-    {
-        $attributes = request()->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
-        ], [
-            'g-recaptcha-response.required' => 'Please complete the captcha validation.',
-            'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
-        ]);
+public function store()
+{
+    $attributes = request()->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        unset($attributes['g-recaptcha-response']);
-
-        if (Auth::attempt($attributes)) {
-            session()->regenerate();
-            if(auth()->user()->user_role == 4)
+    if (Auth::attempt($attributes)) {
+        session()->regenerate();
+        if(auth()->user()->user_role == 4) {
             return redirect('profile')->with(['success' => 'You are logged in.']);
-        else{
-            return redirect()->action([DashboardController::class, 'main'])->with(['success' => 'You are logged in.']);
-
-        }
-
         } else {
-            return back()->withErrors(['email' => 'Email or password invalid.']);
+            return redirect()->action([DashboardController::class, 'main'])->with(['success' => 'You are logged in.']);
         }
+    } else {
+        return back()->withErrors(['email' => 'Email or password invalid.']);
     }
+}
 
     public function destroy()
     {

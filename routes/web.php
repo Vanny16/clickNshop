@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 
 
