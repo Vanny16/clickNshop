@@ -46,7 +46,7 @@
                             @foreach ($viewProducts as $prod_details)
                             <div class="col-md-4 d-flex align-items-stretch product-card" data-category="{{ $prod_details->category }}">
                                 <div class="card mb-4 shadow-sm">
-                                    <img src="{{ asset('storage/products_image/' . $prod_details->product_image) }}" alt="Product Image" class="card-img-top img-fluid">
+                                    <img src="{{ asset('products_image/' . $prod_details->product_image) }}" alt="Product Image" class="card-img-top img-fluid">
                                     <div class="card-body d-flex flex-column">
                                         <p class="card-text font-weight-bold">ID: {{ $prod_details->product_id }}</p>
                                         <p class="card-text font-weight-bold">Name: {{ $prod_details->product_name }}</p>

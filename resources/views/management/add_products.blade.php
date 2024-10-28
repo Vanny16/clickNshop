@@ -79,9 +79,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <!-- First Column - Gender -->
-
-                            <!-- Second Column - Mobile Number -->
 
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -130,52 +127,8 @@
                                 </div>
                             </div>
 
-
-
-                            <!-- Third Column - Email -->
-
-                        <!-- Address and Date of Birth row -->
-
-                            <!-- Date of Birth column with date picker -->
-
                         </div>
-                        <!-- Department and Program row -->
-                        <div class="row">
-                            <!-- First Column - Department -->
-                            <!-- <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="department" class="form-control-label">{{ __('Category') }}</label>
-                                    <div class="@error('department') border border-danger rounded-3 @enderror">
-                                        <select class="form-control w-90" id="department" name="department"
-                                            onchange="updateProgramOptions()" required>
-                                            <option value="" disabled selected>Select Category</option>
-                                            <option value="Fruits">Fruits
-                                            </option>
-                                            <option value="Vegetables">Vegetables</option>
-                                            <option value="Meat">Meat
-                                            </option>
-                                            <option value="Seafood">Seafood
-                                            </option>
-                                        </select>
-                                        @error('department')
-                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- Second Column - Program -->
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- Google Captcha -->
-                                <div class="form-group" required>
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Your other form fields... -->
                         <div class="d-flex justify-content-end">
                             <button type="submit"
                                 class="btn bg-gradient-success btn-md mt-4 mb-4">{{ 'Add Product' }}</button>

@@ -25,25 +25,22 @@ class InfoUserController extends Controller
 
     public function delete_enrollee($id)
     {
-        // Find the enrollee by ID
-        $enrollee = Product::find($id);
+        $product = Products::find($id);
 
         // Check if the enrollee exists
-        if ($enrollee) {
+        if ($product) {
             // Find and delete the corresponding record in StudentDocuments table
-            $studentDocuments = StudentDocuments::where('product_id', $enrollee->student_id)->first();
-            if ($studentDocuments) {
-                $studentDocuments->delete();
+            $result = Products::where('product_id', $product->product_id)->first();
+            if ($result) {
+                $result->delete();
             }
-
-            // Delete the enrollee
-            $enrollee->delete();
+            $product->delete();
 
             // Redirect back with a success message
-            return redirect()->back()->with('success', 'Student deleted successfully!');
+            return redirect()->back()->with('success', 'Product deleted successfully!');
         } else {
             // Redirect back with an error message
-            return redirect()->back()->with('error', 'Student not found!');
+            return redirect()->back()->with('error', 'Product not found!');
         }
     }
 
@@ -501,7 +498,6 @@ public function change_password(Request $request)
     public function view_products(Request $request)
 {
     $category = $request->input('category');
-    // dd($category); // Debugging
 
     if ($category) {
         $viewProducts = Products::where('category', $category)->get();
@@ -526,20 +522,13 @@ public function save_product(Request $request)
             'discount' => 'required',
             'product_image' => 'required',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'g-recaptcha-response' => 'required|captcha',
-            // Add other validation rules as needed
         ]);
 
         if ($request->hasFile('product_image')) {
-        // Get the file from the request
         $image = $request->file('product_image');
-        // Generate a unique name for the file
         $imageName = time() . '_' . $image->getClientOriginalName();
-        // Store the file in the storage/app/public directory
-        $image->storeAs('public/products_image', $imageName);
-        // dd($imageName);
+        $image->move(public_path('products_image'), $imageName);
     } else {
-        // Handle if no file is uploaded
         return redirect()->back()->with('error', 'No image uploaded.');
     }
 
@@ -551,10 +540,7 @@ public function save_product(Request $request)
         $prodcts->category = $request->input('category');
         $prodcts->discount = $request->input('discount');
         $prodcts->product_image = $imageName;
-        // Set other attributes as needed
-        // Save the enrollee to the database
         $prodcts->save();
-        // Redirect to the dashboard
         return redirect('/add_products')->with('success', 'Product Added Successfully!');
     }
 

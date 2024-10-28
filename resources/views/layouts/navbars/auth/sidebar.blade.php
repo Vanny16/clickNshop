@@ -62,7 +62,7 @@
 
       @if(auth()->user()->user_role == 2 || auth()->user()->user_role == 1)
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('student_documents') ? 'active' : '') }}" href="{{ url('student_documents') }}">
+        <a class="nav-link {{ (Request::is('manage_products') ? 'active' : '') }}" href="{{ url('manage_products') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('student_documents') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
@@ -70,7 +70,7 @@
         </a>
       </li>
       @endif
-      
+
 
 
       @if(auth()->user()->user_role == 2 || auth()->user()->user_role == 2)
@@ -149,7 +149,7 @@
           <span class="nav-link-text ms-1">Cart</span>
         </a>
       </li>
-      
+
 
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('') ? 'active' : '') }}" href="{{ url('') }}">
@@ -196,7 +196,7 @@
         </a>
       </li>
 
-      
+
     </ul>
   </div>
 </aside>
